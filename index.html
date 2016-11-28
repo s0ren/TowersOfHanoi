@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <!-- ------------------------------------------------------------------------------------------------------------->8
+        Copyright (c) 2016 by Søren Magnusson
+
+        Published under The MIT Licence (MIT)
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+        associated documentation files (the "Software"), to deal in the Software without restriction,
+        including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+        and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+        subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in all copies
+        or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+        INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+        IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+        WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+        OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+        https://opensource.org/licenses/MIT
+
+     8<------------------------------------------------------------------------------------------------------------- -->
+
+
+    <meta charset="UTF-8">
+    <title>Towers Of Hanoi</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/tether/dist/css/tether.min.css">
+    <link rel="stylesheet" href="node_modules/jqueryui/jquery-ui.min.css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/jqueryui/jquery-ui.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+
+    <script src="towersOfHanoi.js"></script>
+
+    <style>
+        .disc
+        {
+            background-color: #c9302c;
+            text-align: center;
+            border-radius: 0.8rem;
+            padding:0;
+        }
+
+        .hanoi-pin
+        {
+            border: 1px solid lightgray;
+            background-color: cornsilk;
+        }
+        .hanoi-pin-highlight
+        {
+            border-color: #d9534f;
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="display-3">The Towers of Hanoi!</h1>
+            <p class="lead">Welcome to The Towers of Hanoi</p>
+            <hr class="my-2">
+            <p>In this game you mission is to move all the discs,
+                from the pile in the left box to a new pile in the rigth side box.</p>
+            <h3>Restrictions</h3>
+            <ul>
+                <li>you can only move one disk at the time,</li>
+                <li>you cannot put a larger disc on top of smaller,<br>
+                    the pile must grow from larger discs in the buttom to smaller discs at the top.</li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div id="left" class="col-sm-4  hanoi-pin">
+                <div class="row">
+                    <div class="disc offset-sm-5 col-sm-2">1</div>
+                </div>
+                <div class="row">
+                    <div class="disc offset-sm-4 col-sm-4">2</div>
+                </div>
+                <div class="row">
+                    <div class="disc offset-sm-3 col-sm-6" style="">3</div>
+                </div>
+                <div class="row">
+                    <div class="disc offset-sm-2 col-sm-8" style="">4</div>
+                </div>
+                <div class="row">
+                    <div class="disc offset-sm-1 col-sm-10" style="">#5</div>
+                </div>
+                <div class="row">
+                    <div class="disc offset-sm-0 col-sm-12" style="">#6</div>
+                </div>
+            </div>
+            <div id="center" class="col-sm-4  hanoi-pin" >
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+            </div>
+            <div id="right" class="hanoi-pin col-sm-4 " >
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="alertSpace" class="row">
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
