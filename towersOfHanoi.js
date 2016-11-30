@@ -1,9 +1,8 @@
 /** *********************************************************************************************************************
 
- @copyright
+ @license
  Copyright (c) 2016 by Søren Magnusson
 
- @license
  Published under The MIT Licence (MIT)
 
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
@@ -27,18 +26,18 @@
 
 
 /**
- * A structure to hold all information about the current state of the game.
+ * A structure to hold all information about the current state of the game. <br>
  *
- * The pins are the html div element that holds the discs the user can drag.
- *      Pins are also where discs land when they are dropped.
+ * The pins are the html div element that holds the discs the user can drag. <br>
+ *      Pins are also where discs land when they are dropped. <br>
  *
- * stacks holds three arrays, representing the pins and their discs. One the left one in the middle and one to the right.
+ * stacks holds three arrays, representing the pins and their discs. One the left one in the middle and one to the right. <br>
  *
  * numberOfDiscs is how many discs there is in the game. Six is standard. More discs makes the game harder
- * (or, at least longer) to solve. Less discs are simpler, and perhaps better for debuging and analysis.
+ * (or, at least longer) to solve. Less discs are simpler, and perhaps better for debuging and analysis. <br>
  *
  * The functions startGame resets the gameWorld, so that the left stack contains {numberOfDiscs} discs.
- * Center and right are cleared and empty.
+ * Center and right are cleared and empty. <br>
  *
  * @type {{pins: (any), stacks: {left: Array, center: Array, right: Array}, numberOfDiscs: number}}
  */
@@ -75,26 +74,26 @@ function startGame(gameWorld)
  *
  * @param {array} fromStack - The disc stack to move a disc from
  * @param {array} toStack - The disc stack to move a disc to
- * @todo Implement this
  */
 function moveDisc(fromStack, toStack)
 {
-   // TODO implement move
+    toStack.unshift(fromStack.shift());
 }
 
 /**
  * Checks if an intented move is valid or not, before it is actually done.
  * Called by the global anonymous function (Arrrgh awful "name" // TODO give it a real name )
+ *
  * Rules: the disk to move must be smaller that the one it is to land upon, or it can be dropped on an empty stack.
  *
  * @param {array} fromStack - The disc stack to move a disc from
  * @param {array} toStack - The disc stack to move a disc to
  * @returns {boolean} true if move is valid, false if not
- * @todo Implement this
+ *
  */
 function isValidMove(fromStack, toStack)
 {
-    // TODO implement isValidMove
+    return  !(fromStack[0] > toStack[0]);
 }
 
 /**
@@ -102,15 +101,22 @@ function isValidMove(fromStack, toStack)
  * Called by the global anonymous function (Arrrgh awful "name" // TODO give it a real name )
  * @param {object} gameWorld - The global with all info on current game state.
  * @returns {boolean}
- * @todo Implement this
  */
 function checkWin(gameWorld)
 {
-    // TODO implement checkWin
-
-    // does the right side stack have as many discs as gameWorld.numberOfDiscs?
-
-    // are all discs i right side stack order and obeying rules (no disc can be larger than tho ones under it)
+    var rigthStack = gameWorld.stacks['right'];
+    if (rigthStack.length < gameWorld.numberOfDiscs)
+    {
+        return false;
+    }
+    for (var i in rigthStack)
+    {
+        if ((Number(i) +1 ) != rigthStack[i])
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 /**
